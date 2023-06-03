@@ -9,6 +9,7 @@
 #undef calloc
 #undef realloc
 #undef free
+#undef strdup
 
 #define malloc( S )		X_malloc( (S), __FILE__, __LINE__ )
 #define calloc( N, S )	X_calloc( (N), (S), __FILE__, __LINE__ )

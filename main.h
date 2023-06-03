@@ -117,8 +117,13 @@ typedef struct
 #include "math_error.h"
 
 // c99 boolean support
+#ifdef _MSC_VER
+#define bool char
+#define true 1
+#define false 0
+#else
 #include <stdbool.h>
-
+#endif
 // on osx trying to include malloc will not work
 // this brings in malloc on linux and osx
 #include <stdlib.h>
@@ -137,10 +142,7 @@ typedef struct
 typedef uint8_t  u_int8_t;
 typedef uint16_t u_int16_t;
 typedef uint32_t u_int32_t;
-#include <windef.h>
-#else
-// winapi compatibility
-typedef u_int32_t DWORD;
+#include <windows.h>
 #endif
 typedef u_int8_t  BYTE;
 typedef u_int16_t WORD;
